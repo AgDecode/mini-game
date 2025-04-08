@@ -11,24 +11,26 @@ type RoomBehavior struct {
 }
 
 type Room struct {
-	Name        string
-	Description string
-	Items       map[string][]*Item
-	Connections map[string]*Room
-	Traits      map[string]interface{}
-	Emitter     *EventEmitter
-	WasVisited  bool
-	HasHint     bool
+	Name         string
+	Description  string
+	EnterMessage string
+	Items        map[string][]*Item
+	Connections  map[string]*Room
+	Traits       map[string]interface{}
+	Emitter      *EventEmitter
+	WasVisited   bool
+	HasHint      bool
 }
 
-func NewRoom(name, description string) *Room {
+func NewRoom(name, description string, enterMessage string) *Room {
 	return &Room{
-		Name:        name,
-		Description: description,
-		Items:       make(map[string][]*Item),
-		Connections: make(map[string]*Room),
-		Traits:      make(map[string]interface{}),
-		Emitter:     NewEventEmitter(),
+		Name:         name,
+		Description:  description,
+		EnterMessage: enterMessage,
+		Items:        make(map[string][]*Item),
+		Connections:  make(map[string]*Room),
+		Traits:       make(map[string]interface{}),
+		Emitter:      NewEventEmitter(),
 	}
 }
 
